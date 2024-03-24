@@ -24,11 +24,8 @@
         <div class="col-sm-10">
             <x-input-label for="gender" :value="__('Gender')" />
                 <select class="form-control select2" name="gender" id="gender" style="width: 100%;">
-                    <option value="Laki-Laki" {{ old('gender') == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki
-                    </option>
-                    <option value="Perempuan"
-                        {{ old('gender') == 'Perempuan' ? 'selected' : '' }}>Perempuan
-                    </option>
+                    <option value="Laki-Laki" {{ old('gender', $data->gender) == 'Laki-Laki' ? 'selected' : '' }}>Laki-Laki</option>
+                    <option value="Perempuan" {{ old('gender', $data->gender) == 'Perempuan' ? 'selected' : '' }}>Perempuan</option>
                 </select>
                 @error('gender')
                     <small class="text-danger font-italic">{{ $message }}</small>
