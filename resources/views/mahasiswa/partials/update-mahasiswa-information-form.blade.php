@@ -1,11 +1,11 @@
 <section>
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __('Tambah Mahasiswa') }}
+            {{ __('Edit Mahasiswa') }}
         </h2>
 
         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{ __("Isi Data Mahasiswa") }}
+            {{ __("Data Mahasiswa") }}
         </p>
     </header>
 
@@ -13,6 +13,7 @@
     @csrf
     @method('PUT')
         <div>
+        <x-input-label for="gender" :value="__('NIM')" />
         <button type="button" class="btn btn-secondary" disabled>{{$data->nim}}</button>
     </div>
 
