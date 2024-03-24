@@ -14,7 +14,7 @@
     @method('PUT')
         <div>
         <x-input-label for="gender" :value="__('NIM')" />
-        <button type="button" class="btn btn-secondary" disabled>{{$data->nim}}</button>
+        <button type="button" class="btn btn-secondary" disabled  style="color: white;">{{$data->nim}}</button>
     </div>
 
         <div>
