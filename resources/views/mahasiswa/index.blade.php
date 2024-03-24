@@ -5,10 +5,24 @@
         </h2>
     </x-slot>
 
-    <div class="py-12 max-w-7xl mx-auto sm:px-6 lg:px-8" style="padding-bottom: 7px !important;">
-    <x-primary-button class=""><a href="{{ route('mahasiswa.create') }}" style="font-size: 14px;">Tambah Mahasiswa</a></x-primary-button>
+<div class="flex justify-between gap-6 max-w-7xl mx-auto sm:px-6 lg:px-8" style="padding-top: 3rem !important;">
+    <!-- Button -->
+    <div style="display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 4px !important;">
+    <x-primary-button class="">
+        <a href="{{ route('mahasiswa.create') }}" style="font-size: 14px;">Tambah Mahasiswa</a>
+    </x-primary-button>
+</div>
+
+    <!-- Input field -->
+    <div class="flex-1 ml-3">
+        <x-input-label for="search" :value="__('Search')" />
+        <form action="/" method="GET">
+        <x-text-input id="search" name="search" type="text" class="mt-1 block w-full" />
+        </form>
     </div>
-    <div class="py-3">
+</div>
+
+    <div class="py-3"  style="padding-top: 12px !important;">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">

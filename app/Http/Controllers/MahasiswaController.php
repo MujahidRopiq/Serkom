@@ -11,16 +11,25 @@ class MahasiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request )
     {
-        //init variabel untuk order 
         $orderBy = 'nim';
         $order = 'desc';
-
-        //mengambil semua data di database
-        $mahasiswa = Mahasiswa::orderBy($orderBy, $order)->get();
-        
-        //return dengan menuji halaman index dengan data mahasiswa
+    
+        if ($request->has('search')) {
+            // get query search
+            $searchQuery = $request->input('search');
+    
+            // cari berdasarkan nim menggunakan like operator
+            $mahasiswa = Mahasiswa::where('nim', 'like', "%$searchQuery%")
+                ->orderBy($orderBy, $order)
+                ->get();
+        } else {
+            // jika search tidak ada query maka munculkan semua
+            $mahasiswa = Mahasiswa::orderBy($orderBy, $order)
+                ->get();
+        }
+    
         return view('mahasiswa.index', compact('mahasiswa'));
     }
 
